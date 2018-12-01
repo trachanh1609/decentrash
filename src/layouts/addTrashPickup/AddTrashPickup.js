@@ -247,7 +247,8 @@ class Inspect extends Component {
 
   }
 
-  onClick() {
+  onClick(e) {
+    e.preventDefault();
     return hashHistory.push({ pathname: '/' });
   }
 
@@ -264,7 +265,7 @@ class Inspect extends Component {
     return(
       <div style={{width: "375px"}} id="container">
         <div className="page-header col-12 py-3">
-          <div className="back-button"><IndexLink to="/" activeClassName="active">&lt;</IndexLink></div>
+          <IndexLink to="/" activeClassName="active"><i style={{"color": "black", "margin-top": "5px", float: "left"}} className="fas fa-chevron-left"></i></IndexLink>
           Create new listing
         </div>
         <div className="main col-12 h-100 py-3 flex-grow-1 flex-fill ">

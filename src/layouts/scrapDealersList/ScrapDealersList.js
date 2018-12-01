@@ -1,6 +1,7 @@
 import React, { Component, Link } from 'react'
 import { IndexLink } from 'react-router'
 import TrashalizerMap from '../inspect/TrashalizerMap';
+import { hashHistory } from 'react-router';
 import $ from 'jquery'; 
 
 const ngrok_api_url = "https://29e61348.ngrok.io";
@@ -285,12 +286,18 @@ class Inspect extends Component {
     };
   }
 
+  addTrashPickup(e) {
+    e.preventDefault();
+    return hashHistory.push({ pathname: '/addTrashPickup' });
+  }
+
   render() {
     return(
       <div style={{width: "375px"}} id="container">
         <div className="page-header col-12 py-3">
-          <div className="back-button"><IndexLink to="/" activeClassName="active">&lt;</IndexLink></div>
-          Search results
+          <IndexLink to="/" activeClassName="active"><i style={{"color": "black", "margin-top": "5px", float: "left"}} className="fas fa-chevron-left"></i></IndexLink>
+          Available collectors
+          <a href="#" style={{color: "#000"}} onClick={ this.addTrashPickup }><i style={{float: "right", "margin-right": "15px" , "margin-top": "5px"}} className="fas fa-plus"></i></a>
         </div>
         <TrashalizerMap position={this.state.location} scrapDealers={this.state.scrapDealers} className="scrap-dealers-map"/>
         <ScrapDealersList scrapDealers={this.state.scrapDealers} />

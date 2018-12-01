@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { hashHistory } from 'react-router'
+import { IndexLink } from 'react-router'
 
 class ChooseCategory extends Component {
 
@@ -32,8 +33,10 @@ class ChooseCategory extends Component {
       return(
         <main className="container-fluid">
           <div className="row">
-                <span className="col"><i className="fas fa-chevron-left fa-2x"></i> </span>           
-                <h3 className="col-10 text-center">Choose Category</h3>
+                <div className="page-header col-12 py-3">
+                  <IndexLink to="/" activeClassName="active"><i style={{"color": "black", "margin-top": "5px", float: "left"}} className="fas fa-chevron-left"></i></IndexLink>
+                  Choose category
+                </div>
           </div>
           <br></br>
           <div className="row">
