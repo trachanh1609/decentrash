@@ -21,36 +21,51 @@ class Home extends Component {
         });
     }
 
+    chooseCategory(e) {
+      e.preventDefault();
+      return hashHistory.push({ pathname: '/chooseCategory' });
+    }
+
     render() {
       return (
         <div className="cover-container d-flex h-100 p-3 mx-auto flex-column">
           <header className="masthead mb-auto">
             <div className="inner">
-              <nav className="navbar navbar-expand-lg navbar-light bg-light">
-                 <span className="navbar-brand mb-0 h1">Trashalizer</span>
-                 <span>Insight from your trash.</span>
-                <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul className="navbar-nav mr-auto">
-                  <li className="nav-item">
-                    <a className="nav-link" href="#">Inspect</a>
-                  </li>
-                  <li className="nav-item">
-                    <a className="nav-link" href="#">Analysis</a>
-                  </li>
-                  <li className="nav-item">
-                    <a className="nav-link" href="#">Settings</a>
-                  </li>
-                </ul>
-                </div>
-              </nav>
             </div>
           </header>
           <main role="main" className="inner cover">
-            <h1 className="cover-heading">Scan a barcode</h1>
-            <p className="lead">Scan a product barcode to start</p>
+            <center><h1 className="cover-heading">My Trash Tool</h1></center>
+
+            <div id="carouselExampleControls" className="carousel slide" data-ride="carousel">
+              <ol className="carousel-indicators">
+                <li data-target="#carouselExampleIndicators" data-slide-to="0" className="active"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+              </ol>
+              <div className="carousel-inner">
+                <div className="carousel-item active">
+                  <img className="d-block w-100" src="/slideshow0.png" alt="First slide" />
+                </div>
+                <div className="carousel-item">
+                  <img className="d-block w-100" src="/slideshow1.png" alt="Second slide" />
+                </div>
+              </div>
+              <a className="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span className="sr-only">Previous</span>
+              </a>
+              <a className="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                <span className="carousel-control-next-icon" aria-hidden="true"></span>
+                <span className="sr-only">Next</span>
+              </a>
+            </div>
+
             {this.props.children}
-            <a href="#" className="mb-2 btn btn-lg btn-primary" onClick={this.scan}>{this.state.scanning ? 'Cancel' : 'Scan'}</a>
-            {this.state.scanning ? <Scanner onDetected={this._onDetected}/> : null}
+            <center>
+            <a style={{"marginTop": "15px"}} href="#" className="mb-2 btn btn-lg btn-primary" onClick={this.scan}>{this.state.scanning ? 'Cancel' : 'Scan'}</a>
+            <p className="lead">or</p>
+            <a style={{"marginTop": "15px"}} href="#" className="mb-2 btn btn-lg btn-primary" onClick={this.chooseCategory}>Request trash pickup</a>
+            <a style={{"marginTop": "35px"}} href="#" className="mb-2 btn btn-sm btn-dark">Become a collector</a>
+            </center>
           </main>
         </div>
       );
@@ -67,7 +82,7 @@ class Home extends Component {
       }
 
       if (err/countDecodedCodes < 0.1) {
-        console.log("high quality match");
+        //console.log("high quality match");
         this.setState({ "scanning": false });
 
         global.scanData = result;
