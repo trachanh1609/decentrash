@@ -10,6 +10,7 @@ import App from './App'
 import Home from './layouts/home/Home'
 import Inspect from './layouts/inspect/Inspect'
 import scrapDealersList from './layouts/scrapDealersList/ScrapDealersList'
+import addTrashPickup from './layouts/addTrashPickup/AddTrashPickup'
 import Dashboard from './layouts/dashboard/Dashboard'
 import Profile from './user/layouts/profile/Profile'
 
@@ -25,6 +26,7 @@ ReactDOM.render((
           <IndexRoute component={Home} />
           <Route path="inspect/:code" component={Inspect} />
           <Route path="scrapDealersList/:categories" component={scrapDealersList} />
+          <Route path="addTrashPickup" component={addTrashPickup} />
           <Route path="dashboard" component={UserIsAuthenticated(Dashboard)} />
           <Route path="profile" component={UserIsAuthenticated(Profile)} />
         </Route>
