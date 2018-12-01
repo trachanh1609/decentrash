@@ -266,7 +266,7 @@ class Inspect extends Component {
       <div style={{width: "375px"}} id="container">
         <div className="page-header col-12 py-3">
           <IndexLink to="/" activeClassName="active"><i style={{"color": "black", "margin-top": "5px", float: "left"}} className="fas fa-chevron-left"></i></IndexLink>
-          Create new listing
+          Create new request
         </div>
         <div className="main col-12 h-100 py-3 flex-grow-1 flex-fill ">
           <div className="row">
