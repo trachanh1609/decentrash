@@ -556,6 +556,22 @@ div.map {
     position: relative;
 }
 
+.scrap-dealers-map {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 250px;
+    position: relative;
+}
+
+.accordionContent {
+  padding: 22px;
+}
+
+.hidden {
+  display: none;
+}
+
 div.leaflet-container {
     position: absolute;
     flex: 1 1;

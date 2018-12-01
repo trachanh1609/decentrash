@@ -12,12 +12,31 @@ L.Icon.Default.mergeOptions({
     shadowUrl: require('leaflet/dist/images/marker-shadow.png')
 });
 
-function TrashalizerMap({ className, zoom, position, sortingPoints, disposalzoom, children, ...props }) {
+function TrashalizerMap({ className, zoom, position, sortingPoints, scrapDealers, disposalzoom, children, ...props }) {
   if(!position)
     return null;
 
-    var markers = [];
-      sortingPoints.forEach( (sortingPoint) => {  
+  var markers = [];
+
+  if(scrapDealers) {
+    scrapDealers.forEach( (scrapDealer) => {  
+     /*if (product.parent !== lastParent) {
+        /* Place into a temporary variable, then place inside NewPartRow 
+        rows.push(
+          <NewPartRow
+            category={product.category}
+            key={product.category} />
+        );
+      }*/
+      markers.push(
+        <Marker position={ [scrapDealer.lat, scrapDealer.lng] }>
+        </Marker>
+      );
+    }); 
+  }
+ else 
+    
+    sortingPoints.forEach( (sortingPoint) => {  
      /*if (product.parent !== lastParent) {
         /* Place into a temporary variable, then place inside NewPartRow 
         rows.push(
@@ -30,7 +49,6 @@ function TrashalizerMap({ className, zoom, position, sortingPoints, disposalzoom
         <Marker position={ [sortingPoint.lat, sortingPoint.lng] }>
         </Marker>
       );
-      //lastCategory = product.category;
     });   
 
 
@@ -57,7 +75,7 @@ TrashalizerMap.propTypes = {
 
 TrashalizerMap.defaultProps = {
   className: '',
-  position: [60.192059,24.945831],
+  position: [60.1841, 24.8301],
   zoom: 13,
   children: undefined,
 };
