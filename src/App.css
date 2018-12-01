@@ -568,6 +568,16 @@ div.map {
   padding: 22px;
 }
 
+.trashAmountPerTypeContainer {
+ /*width: initial;*/
+}
+
+.trashAmountPerTypeInput {
+ border: 1px solid black;
+ width: 100px;
+}
+
+
 .hidden {
   display: none;
 }
