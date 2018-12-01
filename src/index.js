@@ -12,6 +12,7 @@ import Inspect from './layouts/inspect/Inspect'
 import scrapDealersList from './layouts/scrapDealersList/ScrapDealersList'
 import Dashboard from './layouts/dashboard/Dashboard'
 import Profile from './user/layouts/profile/Profile'
+import ChooseCategory from './layouts/choosecategory/ChooseCategory'
 
 // Redux Store
 import store from './store'
@@ -27,6 +28,7 @@ ReactDOM.render((
           <Route path="scrapDealersList/:categories" component={scrapDealersList} />
           <Route path="dashboard" component={UserIsAuthenticated(Dashboard)} />
           <Route path="profile" component={UserIsAuthenticated(Profile)} />
+          <Route path="ChooseCategory" component={ChooseCategory} />
         </Route>
       </Router>
     </Provider>
