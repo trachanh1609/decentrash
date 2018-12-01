@@ -15,7 +15,8 @@ class Home extends Component {
         this._onDetected = this._onDetected.bind(this);
     }
 
-    scan() {
+    scan(e) {
+        e.preventDefault();
         this.setState((state) => {
           return {scanning: !state.scanning}
         });
@@ -29,6 +30,7 @@ class Home extends Component {
     render() {
       return (
         <div className="cover-container d-flex h-100 p-3 mx-auto flex-column">
+          {this.state.scanning ? <Scanner onDetected={this._onDetected}/> : null}
           <header className="masthead mb-auto">
             <div className="inner">
             </div>
@@ -63,7 +65,7 @@ class Home extends Component {
             <center>
             <a style={{"marginTop": "15px"}} href="#" className="mb-2 btn btn-lg btn-primary" onClick={this.scan}>{this.state.scanning ? 'Cancel' : 'Scan'}</a>
             <p className="lead">or</p>
-            <a style={{"marginTop": "15px"}} href="#" className="mb-2 btn btn-lg btn-primary" onClick={this.chooseCategory}>Request trash pickup</a>
+            <a style={{"marginTop": "15px"}} href="#" className="mb-2 btn btn-lg btn-primary" onClick={ this.chooseCategory } >Request trash pickup</a><br/>
             <a style={{"marginTop": "35px"}} href="#" className="mb-2 btn btn-sm btn-dark">Become a collector</a>
             </center>
           </main>

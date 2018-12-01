@@ -257,7 +257,7 @@ class Inspect extends Component {
     authData = this.props;
 
     this.state = {
-      location: [ 60.1841, 24.8301 ],
+      scrapDealers: [{ lat: 60.1841, lng: 24.8301 }],
     };
   }
 
@@ -289,7 +289,7 @@ class Inspect extends Component {
           Pickup location
         </div>
 
-        <TrashalizerMap position={this.state.location} className="scrap-dealers-map" />
+        <TrashalizerMap scrapDealers={this.state.scrapDealers} position={this.state.location} className="scrap-dealers-map" />
         
         <div className="page-header col-12 py-3">
           <input style={{"margin-right": "5px"}} type="checkbox" checked />
