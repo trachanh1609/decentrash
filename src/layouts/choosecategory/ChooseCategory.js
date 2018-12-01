@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { hashHistory } from 'react-router'
 
 class ChooseCategory extends Component {
 
@@ -18,8 +19,16 @@ class ChooseCategory extends Component {
       super(props)
       
     }
+
+    onClick = () => {
+      return hashHistory.push({ pathname: '/scrapDealersList/24623' });
+    };
   
     render() {
+      const {
+        onClick
+      } = this;
+
       return(
         <main className="container-fluid">
           <div className="row">
@@ -33,7 +42,7 @@ class ChooseCategory extends Component {
                     <div className="col-6" key={category.id}>
                             <div className={"card mb-4 text-white text-center "+category.background}>
                                 <div className="card-body">
-                                    <h3 className="card-text">{category.name}</h3>
+                                    <h3 onClick={ onClick } className="card-text">{category.name}</h3>
                                 
                                 </div>
                             </div>
