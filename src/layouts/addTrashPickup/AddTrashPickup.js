@@ -1,6 +1,7 @@
 import React, { Component, Link } from 'react'
 import { IndexLink } from 'react-router'
 import TrashalizerMap from '../inspect/TrashalizerMap';
+import { hashHistory } from 'react-router'
 import $ from 'jquery'; 
 
 const ngrok_api_url = "https://29e61348.ngrok.io";
@@ -246,6 +247,10 @@ class Inspect extends Component {
 
   }
 
+  onClick() {
+    return hashHistory.push({ pathname: '/' });
+  }
+
   constructor(props, { authData }) {
     super(props)
     authData = this.props;
@@ -279,8 +284,19 @@ class Inspect extends Component {
           </div>
         </div>
 
+        <div className="page-header col-12 py-3">
+          Pickup location
+        </div>
+
         <TrashalizerMap position={this.state.location} className="scrap-dealers-map" />
         
+        <div className="page-header col-12 py-3">
+          <input style={{"margin-right": "5px"}} type="checkbox" checked />
+          Show my number
+        </div>
+
+        <center><a href="#" className="mb-2 btn btn-lg btn-primary" onClick={this.onClick}>Create</a></center>
+
       </div>
     )
   }
