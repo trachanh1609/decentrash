@@ -14,6 +14,7 @@ import addTrashPickup from './layouts/addTrashPickup/AddTrashPickup'
 import Dashboard from './layouts/dashboard/Dashboard'
 import Profile from './user/layouts/profile/Profile'
 import ChooseCategory from './layouts/choosecategory/ChooseCategory'
+import PickupSearch from './layouts/pickupSearch/pickupSearch'
 
 // Redux Store
 import store from './store'
@@ -31,6 +32,7 @@ ReactDOM.render((
           <Route path="dashboard" component={UserIsAuthenticated(Dashboard)} />
           <Route path="profile" component={UserIsAuthenticated(Profile)} />
           <Route path="ChooseCategory" component={ChooseCategory} />
+          <Route path="pickupSearch" component={PickupSearch} />
         </Route>
       </Router>
     </Provider>
